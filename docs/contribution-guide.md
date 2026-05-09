@@ -1,34 +1,35 @@
 # Contribution Guide
 
-Regulato is designed so contributors can add practical rule packs without becoming legal experts.
+ShipTrust is designed for practical trust-readiness feedback, not heavy enterprise workflow automation.
 
-## Good Contributions
+## Good contributions
 
-- New starter rules for GDPR, PCI DSS, HIPAA, CCPA, or security baseline controls
-- Better remediation tasks for existing rules
-- New dashboard states and empty states
-- Report export improvements
-- Tests for rule matching and scoring
+- Clearer trust gap rules for early-stage SaaS products
+- Better generated developer tasks
+- Improved trust page section copy
+- Stronger demo scenarios
+- More polished results and report states
+- Accessibility and responsive UI improvements
+- Product docs that help public feedback
 
-## Rule Pull Request Checklist
+## Rule contribution checklist
 
-- The rule has a unique id.
-- The rule maps to one concrete process or data type.
-- The legal reference is included.
-- The risk level is justified by the technical impact.
-- The recommendation is actionable by engineers.
-- The rule does not claim to provide legal advice.
+- The rule detects a visible customer-facing trust gap.
+- The wording avoids legal-heavy scare language.
+- The suggested fix is practical for a small product team.
+- The generated developer task is concrete.
+- The rule does not make legal or certification claims.
 
-## Suggested Issue Labels
+## Suggested issue labels
 
 - `good first issue`
-- `rules`
-- `gdpr`
-- `pci-dss`
-- `reports`
-- `dashboard`
+- `trust-rules`
+- `ux`
+- `demo-scenario`
+- `report-export`
 - `documentation`
+- `build-in-public`
 
 ## Disclaimer
 
-Regulato is a technical pre-audit assistant. It is not a legal service and should not be used as a substitute for professional legal or audit advice.
+ShipTrust is an educational trust-readiness tool. It does not provide legal advice or certification.

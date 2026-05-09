@@ -1,30 +1,27 @@
-# Rule Packs
+# Trust Rule Packs
 
-The MVP stores executable starter rules in `src/data/rules.ts` so the frontend can run without a backend.
+The current MVP stores ShipTrust rules in `src/engine/trustRules.ts` so the frontend can run without a backend.
 
-Future versions can split rules into public rule packs:
+Future versions may split rules into product-focused packs:
 
 ```text
 rules/
-  gdpr/
-    data-minimization.ts
-    consent-history.ts
-    erasure.ts
-  pci-dss/
-    card-storage.ts
-    tokenization.ts
-    access-logging.ts
-  hipaa/
-    health-data-access.ts
-  ccpa/
-    deletion-requests.ts
-  security-baseline/
-    rbac.ts
-    audit-logs.ts
+  saas-basics/
+    privacy-policy.ts
+    deletion-process.ts
+    security-contact.ts
+  ai-tools/
+    prompt-data-usage.ts
+    generated-content.ts
+  vendor-transparency/
+    subprocessors.ts
+    analytics-notice.ts
 ```
 
 Each rule should preserve the core product mapping:
 
 ```text
-Regulatory requirement -> Technical control -> Developer task
+Customer-facing trust gap -> Suggested fix -> Developer task
 ```
+
+ShipTrust rules are educational guidance only. They do not provide legal advice or compliance certification.

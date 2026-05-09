@@ -1,42 +1,50 @@
 # Architecture
 
-Regulato is a local React + TypeScript SPA. It has no backend, database, authentication or external API dependency in the first-view demo version.
+ShipTrust is a local Vite + React + TypeScript SPA. The current prototype has no backend, database, authentication or external AI dependency.
 
 ## Flow
 
-1. User opens the risk dashboard.
-2. User selects a service or starts a sample audit.
-3. The wizard builds an `AuditContext`.
-4. The local rules engine evaluates TypeScript rules.
-5. The app creates findings, remediation task metadata and a compliance score.
-6. Reports can be exported as Markdown.
+1. User starts on the guided ShipTrust home screen.
+2. User chooses Light Check, Deep Research or Demo Scan.
+3. The app builds a `TrustProfile`.
+4. The local rules engine creates `TrustFinding` items.
+5. Scoring, developer tasks, trust page sections and markdown report output are generated locally.
+6. The user reviews results, opens finding details, previews a trust page draft or exports markdown.
 
-## Core Modules
+## Core modules
 
-- `src/types.ts` defines the domain model.
-- `src/data/rules.ts` contains starter compliance rules.
-- `src/data/mock.ts` contains dashboard and wizard demo data.
-- `src/data/patterns.ts` contains industry patterns.
-- `src/lib/rulesEngine.ts` evaluates rules and scores audits.
-- `src/lib/report.ts` generates Markdown reports.
-- `src/lib/labels.ts` centralizes UI labels.
-- `src/components/*` contains UI components grouped by feature.
+- `src/models/trust.ts` defines the ShipTrust domain model.
+- `src/data/trustOptions.ts` contains wizard options, labels and profile helpers.
+- `src/data/demoScenarios.ts` contains public demo scenarios.
+- `src/engine/trustRules.ts` detects customer-facing trust gaps.
+- `src/engine/trustScore.ts` calculates the trust readiness score.
+- `src/engine/trustTasks.ts` turns findings into developer tasks.
+- `src/engine/trustPageGenerator.ts` drafts public trust page sections.
+- `src/engine/trustReportGenerator.ts` creates markdown output.
+- `src/components/*` contains feature-focused UI components.
+- `src/pages/*` contains screen-level composition.
 
 ## Scoring
 
-The score starts at 100 and subtracts penalties for failed findings.
+The score uses simple weighted checks for visible trust basics:
+- Privacy Policy
+- Terms of Service
+- security contact
+- data deletion process
+- subprocessor list
+- backup process
+- admin audit logs
+- cookie notice
+- incident response note
+- AI data usage explanation when AI is relevant
 
-| Severity | Penalty |
-| --- | ---: |
-| Low | 5 |
-| Medium | 10 |
-| High | 20 |
-| Critical | 35 |
+The scoring is intentionally lightweight. It supports product feedback, not certification.
 
-## Next Phase Ideas
+## Current constraints
 
-- Persistence and audit history
-- Authentication and team workspaces
-- Remediation status updates
-- GitHub/Jira issue export
-- PDF reports
+- no backend
+- no auth
+- no database
+- no real AI API
+- no legal document generation
+- no formal certification

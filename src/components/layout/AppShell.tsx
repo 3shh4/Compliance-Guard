@@ -1,28 +1,39 @@
 import type { ReactNode } from "react";
-import type { AppView } from "../../types";
-import { Sidebar } from "./Sidebar";
-import { Topbar } from "./Topbar";
+import type { AppScreen } from "../../models/trust";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
+
+type AppShellProps = {
+  currentScreen: AppScreen;
+  hasReport: boolean;
+  onNavigate: (screen: AppScreen) => void;
+  onStartLight: () => void;
+  onStartDeep: () => void;
+  onLoadDemo: () => void;
+  children: ReactNode;
+};
 
 export function AppShell({
-  activeView,
-  onChangeView,
-  onExport,
-  onRunDemo,
+  currentScreen,
+  hasReport,
+  onNavigate,
+  onStartLight,
+  onStartDeep,
+  onLoadDemo,
   children
-}: {
-  activeView: AppView;
-  onChangeView: (view: AppView) => void;
-  onExport: () => void;
-  onRunDemo: () => void;
-  children: ReactNode;
-}) {
+}: AppShellProps) {
   return (
     <div className="app-shell">
-      <Sidebar activeView={activeView} onChange={onChangeView} />
-      <main className="workspace">
-        <Topbar onExport={onExport} onRunDemo={onRunDemo} />
-        {children}
-      </main>
+      <Header
+        currentScreen={currentScreen}
+        hasReport={hasReport}
+        onNavigate={onNavigate}
+        onStartLight={onStartLight}
+        onStartDeep={onStartDeep}
+        onLoadDemo={onLoadDemo}
+      />
+      <main className="app-main">{children}</main>
+      <Footer />
     </div>
   );
 }

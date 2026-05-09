@@ -1,0 +1,60 @@
+import type { TrustProfile } from "../models/trust";
+
+export const promptPilotDemo: TrustProfile = {
+  productName: "PromptPilot",
+  description: "An AI writing assistant for freelancers and small teams.",
+  productType: "ai-tool",
+  stage: "first-paying-users",
+  targetCustomers: "Freelancers, small content teams and early-stage agencies",
+  collectedData: [
+    "Email",
+    "Name",
+    "AI prompts/messages",
+    "Generated content",
+    "Analytics events",
+    "Payment metadata"
+  ],
+  infrastructure: ["Vercel", "Supabase"],
+  thirdParties: ["OpenAI", "Stripe", "Sentry", "PostHog", "Resend"],
+  hasUserAccounts: true,
+  hasUploadedFiles: false,
+  usesAiPrompts: true,
+  usesPayments: true,
+  hasAdminRoles: true,
+  hasPrivacyPolicy: false,
+  hasTerms: true,
+  hasCookieNotice: false,
+  hasSecurityContact: false,
+  hasDataDeletionProcess: false,
+  hasBackupProcess: true,
+  hasAdminAuditLogs: false,
+  hasSubprocessorList: false,
+  hasIncidentResponseNote: false,
+  hasAiDataUsageNote: false
+};
+
+export const indieCrmDemo: TrustProfile = {
+  productName: "ClientNorth",
+  description: "A lightweight CRM for solo consultants managing client notes and follow-ups.",
+  productType: "saas",
+  stage: "public-beta",
+  targetCustomers: "Solo consultants and small client-service teams",
+  collectedData: ["Email", "Name", "Company data", "Customer records", "Analytics events"],
+  infrastructure: ["Netlify", "Firebase"],
+  thirdParties: ["Stripe", "Sentry", "Google Analytics"],
+  hasUserAccounts: true,
+  hasUploadedFiles: false,
+  usesAiPrompts: false,
+  usesPayments: true,
+  hasAdminRoles: true,
+  hasPrivacyPolicy: true,
+  hasTerms: false,
+  hasCookieNotice: false,
+  hasSecurityContact: true,
+  hasDataDeletionProcess: false,
+  hasBackupProcess: false,
+  hasAdminAuditLogs: false,
+  hasSubprocessorList: false,
+  hasIncidentResponseNote: false,
+  hasAiDataUsageNote: false
+};
